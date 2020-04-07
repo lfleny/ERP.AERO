@@ -4,12 +4,12 @@
 
 ./.env.production
 
-DB= //Имя БД
-DB_USER= //Пользователь БД
-DB_PASS= //Пароль пользователя БД
-DIALECT=mysql 
-SECRET_ACCESS=fSfhKjbDLhdJpztFGF5KSY1RpBNfVVG2KjrAmCTE // Секрет access токена
-SECRET_REFRESH=zTFebbD6tFa6ixGGupRwGtqlHw6Xomd5iVCIVxY6x8WNI // Секрет refresh токена
+DB= //Имя БД <br/>
+DB_USER= //Пользователь БД <br/>
+DB_PASS= //Пароль пользователя БД <br/>
+DIALECT=mysql  <br/>
+SECRET_ACCESS=fSfhKjbDLhdJpztFGF5KSY1RpBNfVVG2KjrAmCTE // Секрет access токена <br/>
+SECRET_REFRESH=zTFebbD6tFa6ixGGupRwGtqlHw6Xomd5iVCIVxY6x8WNI // Секрет refresh токена <br/>
 
 Все запросы (кроме signin/signup) требуют авторизации по токену
 Токены передаются в заголовке запроса:
