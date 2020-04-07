@@ -10,7 +10,7 @@ const auth = require('../middleware/auth');
 
 router.post('/',
     [
-        body('user_id','Invalid user id').custom(async (value) => {
+        body('id','Invalid user id').custom(async (value) => {
             try {
                 let user = await models.User.findOne({
                     where: {'id': value}
@@ -23,22 +23,22 @@ router.post('/',
                 if (err) throw err;
             }
         }),
-        body('user_id','User id is Empty!').trim().not().isEmpty(),
-        body('user_pass','The password is Empty').trim().not().isEmpty(),
+        body('id','User id is Empty!').trim().not().isEmpty(),
+        body('password','The password is Empty').trim().not().isEmpty(),
     ],
     async (req, res, next) => {
         const validation_result = validationResult(req);
-        const {user_id, user_pass} = req.body;
+        const {id, password} = req.body;
 
         if (validation_result.isEmpty()) {
             try {
-                const user = await models.User.findOne({ where: {id: user_id}});
+                const user = await models.User.findOne({ where: {id: id}});
                 if (!user) {
                     // user with provided id not found
                     throw new Error('Invalid login');
                 }
 
-                const valid = await bcrypt.compare(user_pass, user.password);
+                const valid = await bcrypt.compare(password, user.password);
                 if (!valid) {
                     // bad password
                     throw new Error('Invalid login');
